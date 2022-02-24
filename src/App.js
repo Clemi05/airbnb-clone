@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import GoogleMapReact from 'google-map-react';
 // import logo from './logo.svg';
 // import { render } from '@testing-library/react';
 import './App.css';
@@ -24,7 +25,13 @@ class App extends Component {
       })
   }
 
+
   render() {
+    const defaultCenter = {
+      lat: 48.8566,
+      lng: 2.3522
+    }
+
     return (
       <div className="app">
         <div className="main">
@@ -35,7 +42,14 @@ class App extends Component {
             })}
           </div>
         </div>
-          <div className="map"></div>
+          <div className="map">
+            <GoogleMapReact
+              bootstrapURLKeys={{ key: "" }}
+              defaultCenter={defaultCenter}
+              defaultZoom={11}
+            >
+            </GoogleMapReact>
+          </div>
       </div>
     );
   }
