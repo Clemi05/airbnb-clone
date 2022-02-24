@@ -13,14 +13,16 @@ function App() {
     "lng": 2.343543
   };
 
+  const flats = [flat, flat, flat];
+
   return (
     <div className="app">
       <div className="main">
         <div className="search"></div>
         <div className="flats-container">
-          <Flat flat={flat} />
-          <Flat flat={flat} />
-          <Flat flat={flat} />
+          {flats.map((flat) => {
+            return <Flat flat={flat} />
+          })}
         </div>
       </div>
         <div className="map"></div>
