@@ -23,6 +23,7 @@
   color: hsla(0, 0%, 100%, 1);
   border-radius: 5px;
   padding: 5px;
+  transition: background-color 50ms ease-in-out;
 }
 
 .card-flat-title .card-flat-price:hover {
