@@ -2,19 +2,18 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import Hello from './components/hello';
+// import Hello from './components/hello';
 import reportWebVitals from './reportWebVitals';
 
-const root = <div>
-  <Hello firstName="Naruto" lastName="Uzumaki" />
-  <Hello firstName="Boruto" lastName="Uzumaki" />
-</div>
+// const root = <div>
+//   <Hello firstName="Naruto" lastName="Uzumaki" />
+//   <Hello firstName="Boruto" lastName="Uzumaki" />
+// </div>
 
 ReactDOM.render(
-  root,
-  // <React.StrictMode>
-  //   root
-  // </React.StrictMode>,
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
   document.getElementById('root')
 );
 
