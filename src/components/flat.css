@@ -1,10 +1,30 @@
-.card-flat {
+/* Fonts imports */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400&display=swap');
 
+/* Flat CSS components */
+.card-flat {
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
 }
 
 .card-flat-img {
   height: 200px;
+  background-size: cover;
+  background-position: center;
 }
 
 .card-flat-title {
+  margin-top: 10px;
+}
+
+.card-flat-title .card-flat-price {
+  font-weight: 700;
+  background-color: hsla(193, 95%, 68%, 1);
+  color: hsla(0, 0%, 100%, 1);
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.card-flat-title .card-flat-price:hover {
+  background-color: hsl(220, 13%, 18%, 1);
 }
