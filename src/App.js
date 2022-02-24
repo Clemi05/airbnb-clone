@@ -1,33 +1,46 @@
-// import React, { Component } from 'react';
+import React, { Component } from 'react';
 // import logo from './logo.svg';
+// import { render } from '@testing-library/react';
 import './App.css';
 import Flat from './components/flat';
 
-function App() {
-  const flat = {
-    "name": "Trendy Apt in Buttes Montmartre",
-    "imageUrl": "https://raw.githubusercontent.com/lewagon/flats-boilerplate/master/images/flat2.jpg",
-    "price": 200,
-    "priceCurrency": "EUR",
-    "lat": 48.885707,
-    "lng": 2.343543
-  };
 
-  const flats = [flat, flat, flat];
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      flats: []
+    };
+  }
 
-  return (
-    <div className="app">
-      <div className="main">
-        <div className="search"></div>
-        <div className="flats-container">
-          {flats.map((flat) => {
-            return <Flat flat={flat} />
-          })}
+  componentDidMount() {
+    const url = "https://raw.githubusercontent.com/lewagon/flats-boilerplate/master/flats.json";
+    fetch(url) //AJAX
+      .then(response => response.json())
+      .then((data) => {
+        this.setState({
+          flats: data
+        });
+      })
+  }
+
+  render() {
+    return (
+      <div className="app">
+        <div className="main">
+          <div className="search"></div>
+          <div className="flats-container">
+            {this.state.flats.map((flat) => {
+              return <Flat flat={flat} />
+            })}
+          </div>
         </div>
+          <div className="map"></div>
       </div>
-        <div className="map"></div>
-    </div>
     );
+  }
+
+
   }
 
   export default App;
@@ -35,19 +48,21 @@ function App() {
 
   /* React template */
 
-  /*     <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div> */
+/*   function App() {
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
+    </div>
+  } */
