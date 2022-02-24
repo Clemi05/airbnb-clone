@@ -5,27 +5,25 @@
 .card-flat {
   font-family: "Open Sans", sans-serif;
   font-size: 14px;
+  flex-basis: calc(50% - 20px);
+  margin: 10px;
 }
 
 .card-flat-img {
   height: 200px;
   background-size: cover;
   background-position: center;
+  border-radius: 5px 5px 0px 0px;
 }
 
 .card-flat-title {
-  margin-top: 10px;
-}
-
-.card-flat-title .card-flat-price {
-  font-weight: 700;
-  background-color: hsla(193, 95%, 68%, 1);
+  background-color: hsl(220, 13%, 18%, 1);
   color: hsla(0, 0%, 100%, 1);
-  border-radius: 5px;
-  padding: 5px;
+  border-radius: 0px 0px 5px 5px;
+  padding: 10px;
   transition: background-color 50ms ease-in-out;
 }
 
-.card-flat-title .card-flat-price:hover {
-  background-color: hsl(220, 13%, 18%, 1);
+.card-flat:hover {
+  opacity: 0.9;
 }

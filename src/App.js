@@ -15,11 +15,15 @@ function App() {
 
   return (
     <div className="app">
-      <main>
+      <div className="main">
         <div className="search"></div>
-        <div className="flats-container"></div>
+        <div className="flats-container">
+          <Flat flat={flat} />
+          <Flat flat={flat} />
+          <Flat flat={flat} />
+        </div>
+      </div>
         <div className="map"></div>
-      </main>
     </div>
     );
   }

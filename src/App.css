@@ -4,10 +4,16 @@
   display: flex;
 }
 
-main {
+.main {
   flex-basis: 60%;
   display: flex;
   flex-direction: column;
+}
+
+.flats-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
 }
 
 .map {
@@ -16,6 +22,7 @@ main {
   top: 0;
   position: sticky;
 }
+
 
 
 
