@@ -54,7 +54,7 @@ class App extends Component {
           lat: this.state.selectedFlat.lat,
           lng: this.state.selectedFlat.lng
         },
-        zoom: 14
+        zoom: 13
       }
     }
 
@@ -78,7 +78,12 @@ class App extends Component {
               zoom={defaultProps.zoom}
             >
               {this.state.flats.map((flat) => {
-                return <Marker key={flat.id} lat={flat.lat} lng={flat.lng} text={flat.price} />
+                return <Marker
+                key={flat.id}
+                lat={flat.lat}
+                lng={flat.lng}
+                text={flat.price}
+                selected={flat === this.state.selectedFlat}/>
               })}
             </GoogleMapReact>
           </div>

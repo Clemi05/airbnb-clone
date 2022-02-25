@@ -2,9 +2,14 @@
 .marker {
   width: 48px;
   color: hsla(0, 0%, 100%, 1);
-  background-color: hsl(220, 13%, 18%, 1);
+  background-color: hsla(220, 13%, 18%, 1);
   border-radius: 5px;
   font-size: 14px;
   text-align: center;
   padding: 4px 0px;
+}
+
+.marker.selected {
+  background-color: hsla(193, 95%, 68%, 1);
+  color: hsla(220, 13%, 18%, 1);
 }
