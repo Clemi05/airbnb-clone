@@ -12,7 +12,9 @@ class App extends Component {
     super(props);
     this.state = {
       flats: [],
-      selectFlat: null
+      allFlats: [],
+      selectFlat: null,
+      search: ""
     };
   }
 
@@ -22,10 +24,13 @@ class App extends Component {
       .then(response => response.json())
       .then((data) => {
         this.setState({
-          flats: data
+          flats: data,
+          allFlats: data
         });
       })
   }
+
+  /* Animation when clicking on a flat card */
 
   selectFlat = (flat) => {
     this.setState({
@@ -33,6 +38,15 @@ class App extends Component {
     })
   }
 
+  /* Animation for the searchbar */
+
+  handleSearch = (event) => {
+    debugger
+    this.setState({
+      search: event.target.value,
+      flats: this.state.allFlats.filter((flat) => new RegExp(event.target.value, "i").exec(flat.name))
+    });
+  }
 
   render() {
     let defaultProps = {
@@ -42,11 +56,6 @@ class App extends Component {
       },
       zoom: 11
     };
-
-    // let center: {
-    //   lat: 48.8566,
-    //   lng: 2.3522
-    // };
 
     if (this.state.selectedFlat) {
       defaultProps = {
@@ -64,7 +73,7 @@ class App extends Component {
           <div className="search">
             <input
               type="text"
-              placeHolder="Find the best appartment now!"
+              placeholder="Find the best appartments!"
               value={this.state.search}
               onChange={this.handleSearch} />
           </div>
