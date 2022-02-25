@@ -11,7 +11,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      flats: []
+      flats: [],
+      selectFlat: null
     };
   }
 
@@ -27,13 +28,34 @@ class App extends Component {
   }
 
   selectFlat = (flat) => {
+    this.setState({
+      selectedFlat: flat
+    })
   }
 
 
   render() {
-    const defaultCenter = {
-      lat: 48.8566,
-      lng: 2.3522
+    let defaultProps = {
+      center: {
+        lat: 48.8566,
+        lng: 2.3522
+      },
+      zoom: 11
+    };
+
+    // let center: {
+    //   lat: 48.8566,
+    //   lng: 2.3522
+    // };
+
+    if (this.state.selectedFlat) {
+      defaultProps = {
+        center: {
+          lat: this.state.selectedFlat.lat,
+          lng: this.state.selectedFlat.lng
+        },
+        zoom: 14
+      }
     }
 
     return (
@@ -52,8 +74,8 @@ class App extends Component {
           <div className="map">
             <GoogleMapReact
               bootstrapURLKeys={{ key: "" }}
-              defaultCenter={defaultCenter}
-              defaultZoom={11}
+              center={defaultProps.center}
+              zoom={defaultProps.zoom}
             >
               {this.state.flats.map((flat) => {
                 return <Marker key={flat.id} lat={flat.lat} lng={flat.lng} text={flat.price} />
