@@ -3,6 +3,8 @@
   width: 48px;
   color: hsla(0, 0%, 100%, 1);
   background-color: hsl(220, 13%, 18%, 1);
-  border-radius: 2px;
+  border-radius: 5px;
+  font-size: 14px;
   text-align: center;
+  padding: 4px 0px;
 }

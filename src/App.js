@@ -26,6 +26,10 @@ class App extends Component {
       })
   }
 
+  selectFlat = (flat) => {
+    console.log(flat);
+  }
+
 
   render() {
     const defaultCenter = {
@@ -39,7 +43,10 @@ class App extends Component {
           <div className="search"></div>
           <div className="flats-container">
             {this.state.flats.map((flat) => {
-              return <Flat flat={flat} />
+              return <Flat
+              key={flat.id}
+              flat={flat}
+              selectFlat={this.selectFlat} />
             })}
           </div>
         </div>
@@ -50,7 +57,7 @@ class App extends Component {
               defaultZoom={11}
             >
               {this.state.flats.map((flat) => {
-                return <Marker lat={flat.lat} lng={flat.lng} text={flat.price} />
+                return <Marker key={flat.id} lat={flat.lat} lng={flat.lng} text={flat.price} />
               })}
             </GoogleMapReact>
           </div>
